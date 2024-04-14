@@ -17,10 +17,10 @@ def draw_plot():
 
     plt.plot(xA,yA)
 
-    # Create second line of best fit
-    df_2000 = df[df['Year'] >= 2000]
+    # Crear una segunda línea de mejor ajuste
+    df_recent = df[df['Year'] >= 2000]
 
-    lineB = linregress(df_2000['Year'], df_2000['CSIRO Adjusted Sea Level'])
+    lineB = linregress(df_recent['Year'], df_recent['CSIRO Adjusted Sea Level'])
     xB = np.arange(2000,2050,1)
     yB = xB*lineB.slope + lineB.intercept
 
