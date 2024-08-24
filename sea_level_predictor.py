@@ -3,11 +3,9 @@ import matplotlib.pyplot as plt
 from scipy.stats import linregress
 import numpy as np
 
-def draw_plot():
-    # Leer los datos 
+def draw_plot(): 
     df = pd.read_csv('epa-sea-level.csv')
     
-    # Crear diagrama de dispersión
     plt.scatter(df['Year'], df['CSIRO Adjusted Sea Level'], c=df['Year'], cmap='viridis')
     
     # Crear primera línea de mejor ajuste
@@ -17,7 +15,6 @@ def draw_plot():
     
     plt.plot(xA,yA, color='orange')
     
-    # Crear segunda línea de mejor ajuste
     df_recent = df[df['Year'] >= 2000]
     
     lineB = linregress(df_recent['Year'], df_recent['CSIRO Adjusted Sea Level'])
@@ -26,7 +23,6 @@ def draw_plot():
     
     plt.plot(xB,yB, color='red')
     
-    # Agregar títulos y guardar la imagen
     plt.xlabel('Year')
     plt.ylabel('Sea Level (inches)')
     plt.title('Rise in Sea Level')
